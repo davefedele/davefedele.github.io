@@ -1,4 +1,50 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Dave Fedele - Memoize</title><description>A place to keep the answers for things I shouldn't forget.</description><link>http://localhost:2368/</link><generator>Ghost 0.5</generator><lastBuildDate>Sun, 25 Jan 2015 00:54:04 GMT</lastBuildDate><atom:link href="http://localhost:2368/author/dave/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>MVP Project</title><description>&lt;p&gt;Blood. Sweat. Tears. And Success. That's how you can sum up the MVP project. It's a project where students get the opportunity to test what they know and ultimately, discover their strengths and weaknesses.&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Dave Fedele - Memoize</title><description>A place to keep the answers for things I shouldn't forget.</description><link>http://davefedele.com/</link><generator>Ghost 0.5</generator><lastBuildDate>Mon, 16 Feb 2015 18:49:14 GMT</lastBuildDate><atom:link href="http://davefedele.com/author/dave/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>MIDI and Tone.js</title><description>&lt;p&gt;&lt;strong&gt;MIDI&lt;/strong&gt; stands for Musical Instrument Digital Interface. It's a protocol that allows a wide variety of electronic musical instruments and computers to connect and communicate. It also allows for the recording of performances to a MIDI file, that can later be edited and replayed.  &lt;/p&gt;
+
+&lt;p&gt;A MIDI file stores data about a particular song or performance and can store up to 16 tracks. It does this by storing information, called &lt;strong&gt;messages&lt;/strong&gt;, about the song and the individual tracks that compose it.&lt;/p&gt;
+
+&lt;p&gt;A message consists of a string of 8-bit bytes. It can store information like when a note was pressed (&lt;strong&gt;Note on&lt;/strong&gt;) and released (&lt;strong&gt;Note off&lt;/strong&gt;), the key pressure (&lt;strong&gt;Aftertouch&lt;/strong&gt;) , Volume of a track, and the track instrument (&lt;strong&gt;Voice&lt;/strong&gt;).  MIDI utilizes something called a clock that synchronizes all connected MIDI devices so everything stays in time. &lt;/p&gt;
+
+&lt;p&gt;We are currently building a web app that utilizes MIDI recording and playback. Luckily, there are a few libraries that exist to aid us in our quest. The most complete library we've found is &lt;strong&gt;Tone.js&lt;/strong&gt; and it has a multitude of useful methods exposed for us. It is a framework for the &lt;strong&gt;web audio api&lt;/strong&gt;. &lt;br&gt;
+ToneNoTone allows for the creation of instruments, effects, and allows for global control of MIDI playback through their Transport protocol. Here is an example of building a simple instrument that plays a middle C:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+    var synth = new Tone.MonoSynth();
+    //connect the synth to the master output channel
+    synth.toMaster();
+    //create a callback which is invoked every quarter note
+    Tone.Transport.setInterval(function(time){
+        //trigger middle C for the duration of an 8th note
+        synth.triggerAttackRelease("C4", "8n", time);
+    }, "4n");
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can easily adjust the song tempo or even set the song to loop over certain measures.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+    //set the tempo to 130 beats per minute
+    Tone.Transport.setBpm(130);
+    //set looping for the first measure and turn it on
+    Tone.Transport.setLoopEnd("1m");
+    Tone.Transport.loop = true;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ToneNoTone also has a multitude of built in presets and effects. &lt;br&gt;
+For example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+    AutoPanner
+    AutoWah
+    Chorus
+    Distortion
+    Eq
+    Gate
+    LFO
+    Panner
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;There a lot of built in functionality and we are just beginning to scratch the surface. Tone.js is going to be an incredibly useful library for implementing web audio and MIDI in our application. I hope to contribute to Tone.js so I'm sure they'll be receiving a pull request from us when we're done!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/TONEnoTONE/Tone.js"&gt;https://github.com/TONEnoTONE/Tone.js&lt;/a&gt;&lt;/p&gt;</description><link>http://davefedele.com/midi-and-tonenotone-js/</link><guid isPermaLink="false">9b2b2cd1-1f07-48d2-be8d-75fe9bd3b4fd</guid><dc:creator>Dave Fedele</dc:creator><pubDate>Mon, 16 Feb 2015 17:22:38 GMT</pubDate></item><item><title>MVP Project</title><description>&lt;p&gt;Blood. Sweat. Tears. And Success. That's how you can sum up the MVP project. It's a project where students get the opportunity to test what they know and ultimately, discover their strengths and weaknesses.&lt;/p&gt;
 
 &lt;p&gt;MVP stands for minimum viable product. Essentially, we choose an idea for a web application that we'd like to build. We imagine what can be done in 24 hours and then cut the scope down. Then, we cut the scope again. Remember, this is not the full-blown feature rich application of our dreams. Rather it's the bare minimum to get the idea across and something that can be accomplished in a little over 24 hours.&lt;/p&gt;
 
@@ -12,7 +58,7 @@
 
 &lt;p&gt;It's solidified the valuable concept that Hack Reactor has been constantly echoing; The path to mastering something involves failure. And a lot of it! It's what you do with those failures that determines who you become.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="http://foodfight.azurewebsites.net/"&gt;My MVP - Food Fight&lt;/a&gt;&lt;/p&gt;</description><link>http://localhost:2368/mvp-project/</link><guid isPermaLink="false">1fbe1b4d-5742-4d72-a187-f8f1cb584f7a</guid><dc:creator>Dave Fedele</dc:creator><pubDate>Sun, 25 Jan 2015 00:52:23 GMT</pubDate></item><item><title>Adding it all up</title><description>&lt;p&gt;There comes a time in every programmer's life when they need to increment a variable. How they do it can have a profound effect on how they expect the code following to behave.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://foodfight.azurewebsites.net/"&gt;My MVP - Food Fight&lt;/a&gt;&lt;/p&gt;</description><link>http://davefedele.com/mvp-project/</link><guid isPermaLink="false">1fbe1b4d-5742-4d72-a187-f8f1cb584f7a</guid><dc:creator>Dave Fedele</dc:creator><pubDate>Sun, 25 Jan 2015 00:52:23 GMT</pubDate></item><item><title>Adding it all up</title><description>&lt;p&gt;There comes a time in every programmer's life when they need to increment a variable. How they do it can have a profound effect on how they expect the code following to behave.&lt;/p&gt;
 
 &lt;h3 id="caseinpointvs"&gt;Case-in-point: ++  vs +=&lt;/h3&gt;
 
@@ -55,4 +101,4 @@
 
 &lt;h6 id="andthevariableincrementingprogrammerslivedhappilyeveryafter"&gt;And the variable incrementing programmers lived happily every after.&lt;/h6&gt;
 
-&lt;h3 id="theend"&gt;The End&lt;/h3&gt;</description><link>http://localhost:2368/adding-it-all-up/</link><guid isPermaLink="false">b4b0bdf0-d3b6-410a-b2ed-a761180a424e</guid><dc:creator>Dave Fedele</dc:creator><pubDate>Sun, 28 Dec 2014 21:28:36 GMT</pubDate></item></channel></rss>
+&lt;h3 id="theend"&gt;The End&lt;/h3&gt;</description><link>http://davefedele.com/adding-it-all-up/</link><guid isPermaLink="false">b4b0bdf0-d3b6-410a-b2ed-a761180a424e</guid><dc:creator>Dave Fedele</dc:creator><pubDate>Sun, 28 Dec 2014 21:28:36 GMT</pubDate></item></channel></rss>
